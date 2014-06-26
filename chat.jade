@@ -15,7 +15,12 @@ template(name="message")
 template(name="messages")
   ul.messages
     each messages
-      +message
+      hr
+      +messageClump
+
+template(name="messageClump")
+  each this
+    +message
 
 template(name="person")
   li
