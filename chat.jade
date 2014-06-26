@@ -1,0 +1,34 @@
+head
+  title Chat
+
+body
+  .chats
+    +messages
+    +people
+
+  +form
+  - scrollToBottom
+
+template(name="message")
+  li= body
+
+template(name="messages")
+  ul.messages
+    each messages
+      +message
+
+template(name="person")
+  li
+    a(href="#{link}" target="_blank" style="color: #{color};")
+      img(src="#{avatar}")
+      = name
+
+template(name="people")
+  ul.online
+    each people
+      +person
+
+template(name="form")
+  form
+    input(placeholder="Type to chat...")
+    button Send

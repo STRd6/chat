@@ -1,0 +1,21 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "moment": {},
+      "jade": {}
+    },
+    "packages": {
+      "moment": {
+        "git": "https://github.com/acreeger/meteor-moment.git",
+        "tag": "v2.6.0",
+        "commit": "26156df681750fd6e6ed77043eef32b6653ebbdf"
+      },
+      "jade": {
+        "git": "https://github.com/mquandalle/meteor-jade.git",
+        "tag": "v0.2.4",
+        "commit": "a47a4c59daaa57e7fe5f1544d4ea76d95a5c9abf"
+      }
+    }
+  }
+}
