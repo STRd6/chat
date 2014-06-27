@@ -6,8 +6,9 @@ html, body
   width 100%
 
 body
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
-  font-weight: 300
+  font-family "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+  font-size 14px
+  font-weight 300
   margin 0
   overflow hidden
   padding-bottom 25px
@@ -22,8 +23,37 @@ a
   padding-right 152px
   position relative
 
+a.author
+  .img-wrap
+    display inline-block
+    width 32px
+    height 32px
+    overflow hidden
+    position relative
+    vertical-align middle
+
+    img
+      position absolute
+      top 0
+      bottom 0
+      right 0
+      left 0
+      display block
+      margin auto
+      max-width 100%
+
+.messages
+  a.author
+    background-color white
+    position absolute
+    top 0.5em
+    left 0
+
+    .img-wrap
+      display none
+
 .online
-  border-left 1px solid rgba(0, 0, 0, 0.25)
+  border-left 1px solid rgba(0, 0, 0, 0.125)
   height 100%
   width 150px
   padding-left 2px
@@ -31,12 +61,39 @@ a
   right 0
   top 0
 
+  li
+    margin-top 2px
+
+    &:first-child
+      margin-top 0
+
+hr
+  border none
+  border-top 1px solid rgba(0, 0, 0, 0.125)
+  margin 1em 0
+
+time
+  display none
+  position absolute
+  right 0
+  top 0.5em
+  background-color hsl(0, 100%, 100%)
+  color hsla(0, 0%, 0%, 0.25)
+
+.messages li:hover time
+  display block
+
 ul
   height 100%
   list-style-type none
   margin 0
   padding 0
   overflow auto
+
+li
+  overflow hidden
+  white-space nowrap
+  position relative
 
 form
   position absolute

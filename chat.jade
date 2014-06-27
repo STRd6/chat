@@ -12,10 +12,22 @@ body
 template(name="message")
   li= body
 
+template(name="authorLink")
+  a.author(href="#{link}" target="_blank" style="color: #{color};")
+    .img-wrap
+      img(src="#{avatar}")
+    = name
+
+template(name="messageHeader")
+  li
+    hr
+    +authorLink author
+    time(datetime=createdAt)= createdAt
+
 template(name="messages")
   ul.messages
     each messages
-      hr
+      +messageHeader
       +messageClump
 
 template(name="messageClump")
@@ -24,9 +36,7 @@ template(name="messageClump")
 
 template(name="person")
   li
-    a(href="#{link}" target="_blank" style="color: #{color};")
-      img(src="#{avatar}")
-      = name
+    +authorLink
 
 template(name="people")
   ul.online
