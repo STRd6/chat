@@ -1,6 +1,5 @@
 
 # TODO: Post image to chat
-# TODO: Autolink urls
 # TODO: Base64 encode json env?
 
 # Group by same author
@@ -61,6 +60,15 @@ if Meteor.isClient
       avatar: "http://pixieengine.com/avatars/thumb/missing.png"
       color: "hsl(#{0|(Math.random() * 360)}, 80%, 50%)"
 
+  post = (message) ->
+    Messages.insert
+      body: message
+      createdAt: moment().toDate()
+      author: author
+
+  extend Postmaster(),
+    post: post
+
   Meteor.call('updatePerson', author)
 
   setInterval ->
@@ -70,11 +78,7 @@ if Meteor.isClient
   Template.form.events
     'submit form': ->
       val = $("input").val()
-      Messages.insert
-        body: val
-        createdAt: moment().toDate()
-        author: author
-      Meteor.call('updatePerson', author)
+      post val
       $('input').val('')
 
       return false
@@ -96,8 +100,6 @@ if Meteor.isServer
       pruneMessages()
       pruneInactive()
     , 5 * 1000
-
-    seed()
 
 pruneMessages = ->
   console.log "Messages: " + Messages.find().count()
