@@ -81,7 +81,10 @@ if Meteor.isClient
 
   Template.messages.messages = getMessages
 
-  Template.message.rendered = scrollToBottom
+  Template.message.rendered = ->
+    autolink(@firstNode)
+    scrollToBottom()
+
   Template.messageHeader.rendered = ->
     @$('time').timeago()
 
