@@ -1,5 +1,6 @@
 
 # TODO: Post image to chat
+# w.postMessage({method: "send", params: ["hellow"]}, "*")
 # TODO: Base64 encode json env?
 
 # Group by same author
